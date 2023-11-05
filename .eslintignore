@@ -1,2 +1,3 @@
 dist
 .eslintrc.cjs
+shims-vue.d.ts

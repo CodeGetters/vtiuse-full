@@ -11,7 +11,7 @@
     "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
     "prepare": "husky install",
     "cz": "git cz",
-    "dev":"cd packages/web && pnpm dev && cd .. && cd ..",
+    "dev": "cd packages/web && pnpm dev && cd .. && cd ..",
     "start": "cd packages/back && pnpm start && cd .. && cd .."
   },
   "config": {
