@@ -12,7 +12,7 @@
     "prepare": "husky install",
     "cz": "git cz",
     "dev": "cd packages/web && pnpm dev && cd .. && cd ..",
-    "start": "cd packages/back && pnpm start && cd .. && cd .."
+    "start": "cd packages/back && pnpm start:dev && cd .. && cd .."
   },
   "config": {
     "commitizen": {
