@@ -17,6 +17,6 @@ async function bootstrap() {
 
   await app.listen(3000);
   console.log(blue(`[API Docs]${await app.getUrl()}/docs`));
-  console.log(blue(`[Test API]${await app.getUrl()}`));
+  console.log(blue(`[Test API]${await app.getUrl()}/example`));
 }
 bootstrap();

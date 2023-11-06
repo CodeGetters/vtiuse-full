@@ -1,3 +1,4 @@
+import { blue } from "kolorist";
 import { Injectable } from "@nestjs/common";
 import { I18nLang, I18nService } from "nestjs-i18n";
 
@@ -5,7 +6,9 @@ import { I18nLang, I18nService } from "nestjs-i18n";
 export class AppService {
   constructor(private readonly i18n: I18nService) {}
 
-  getHello(@I18nLang() lang: string): string {
-    return this.i18n.translate("test.Hello", { lang });
+  getHello(@I18nLang() lang: string) {
+    console.log(blue("[TEST]: app 示例请求成功！"));
+
+    return { info: this.i18n.translate("test.Hello", { lang }) };
   }
 }

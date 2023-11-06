@@ -1,14 +1,19 @@
-import { Controller, Get } from "@nestjs/common";
-import { AppService } from "../services/app.service";
+import { Get, Controller } from "@nestjs/common";
 import { I18nLang } from "nestjs-i18n";
+import { AppService } from "../services/app.service";
+import { ApiTags, ApiOperation } from "@nestjs/swagger";
 
-@Controller("/example")
+@ApiTags("测试")
+@Controller("example")
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(@I18nLang() lang: string): string {
-    // 需要一个语言参数：zh|en
+  @ApiOperation({
+    summary: "示例 get 请求",
+    description: "app 连接测试请求",
+  })
+  getHello(@I18nLang() lang: string) {
     return this.appService.getHello(lang);
   }
 }
