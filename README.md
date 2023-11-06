@@ -15,3 +15,33 @@ backend
 # dev
 pnpm start
 ```
+
+## features
+
+- [x] eslint
+- [x] prettier
+- [x] husky
+- [x] changelog
+- [x] cz-git
+
+### frontend
+
+- [x] TS
+- [x] vue3
+- [x] vueuse
+- [x] vue-touter
+- [x] vitest
+- [x] axios
+- [x] sass
+- [ ] i18n
+- [x] unocss
+- [x] element-plus
+
+### backend
+
+- [x] TS
+- [x] nestjs
+- [x] i18n
+- [x] hmr
+- [x] jest
+- [x] express
