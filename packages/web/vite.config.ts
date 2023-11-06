@@ -8,6 +8,8 @@ import tsChecker from "vite-plugin-checker";
 import devTools from "vite-plugin-vue-devtools";
 import AutoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Components from "unplugin-vue-components/vite";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -84,12 +86,16 @@ export default ({ mode }) => {
             ],
           },
         ],
+        resolvers: [ElementPlusResolver()],
         defaultExportByFilename: false,
         dts: true,
         vueTemplate: false,
         injectAtEnd: true,
       }),
       viteCompression(),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
   });
 };
