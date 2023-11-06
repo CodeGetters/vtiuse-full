@@ -1,4 +1,4 @@
 dist
 .eslintrc.cjs
 shims-vue.d.ts
-webpack.config.js
+webpack-hmr.config.js
