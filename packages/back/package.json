@@ -4,12 +4,13 @@
   "description": "",
   "author": "CodeGetters",
   "private": false,
+  "type": "commonjs",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "webpack --config webpack.config.js --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -26,7 +27,11 @@
     "@nestjs/platform-express": "^10.0.0",
     "@vtiuse-full/back": "link:",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1"
+    "run-script-webpack-plugin": "^0.2.0",
+    "rxjs": "^7.8.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -40,7 +45,7 @@
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
-    "ts-loader": "^9.4.3",
+    "ts-loader": "^9.5.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0"
   },

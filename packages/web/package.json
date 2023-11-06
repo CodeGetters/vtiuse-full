@@ -5,11 +5,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "preinstall": "npx only-allow pnpm",
+    "preview": "vite preview --open",
     "test": "vitest",
+    "preinstall": "npx only-allow pnpm",
     "coverage": "vitest run --coverage",
     "typecheck": "vue-tsc --noEmit"
   },
