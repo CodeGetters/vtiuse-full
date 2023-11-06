@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "preinstall": "npx only-allow pnpm",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@vueuse/core": "^10.5.0",
@@ -22,10 +23,14 @@
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.2",
+    "@unocss/preset-attributify": "^0.57.2",
+    "@unocss/preset-icons": "^0.57.2",
+    "@unocss/preset-typography": "^0.57.2",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitest/coverage-istanbul": "^0.34.6",
     "@vue/tsconfig": "^0.4.0",
     "happy-dom": "^12.10.3",
+    "unocss": "^0.57.2",
     "unplugin-auto-import": "^0.16.7",
     "vite": "^4.5.0",
     "vite-plugin-checker": "^0.6.2",

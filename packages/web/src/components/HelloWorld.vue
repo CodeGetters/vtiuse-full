@@ -9,7 +9,7 @@ const count = ref(0);
 <template>
   <h1>{{ msg }}</h1>
 
-  <div class="card">
+  <div bg-red class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
       Edit
@@ -17,7 +17,7 @@ const count = ref(0);
     </p>
   </div>
 
-  <p>
+  <p bg-red>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
       >create-vue</a

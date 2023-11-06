@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 
 import { defineConfig, loadEnv } from "vite";
+import UnoCSS from "unocss/vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "node:path";
 import tsChecker from "vite-plugin-checker";
@@ -67,6 +68,7 @@ export default ({ mode }) => {
       tsChecker({
         typescript: true,
       }),
+      UnoCSS(),
       devTools(),
       AutoImport({
         include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
