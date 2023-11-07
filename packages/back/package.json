@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "commonjs",
   "_moduleAliases": {
-    "#": "dist"
+    "~": "dist"
   },
   "scripts": {
     "build": "nest build",

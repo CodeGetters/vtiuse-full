@@ -1,12 +1,8 @@
-// import { init } from "module-alias";
-// import { resolve } from "node:path";
+import "module-alias";
 
-// init({
-//   base: resolve(__dirname, "../package.json"),
-// });
 import { NestFactory } from "@nestjs/core";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { AppModule } from "./modules/app.module";
+import { AppModule } from "~/modules/app.module";
 import { blue } from "kolorist";
 
 async function bootstrap() {

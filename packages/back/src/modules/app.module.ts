@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "../controllers/app.controller";
-import { AppService } from "../services/app.service";
+import { AppController } from "~/controllers/app.controller";
+import { AppService } from "~/services/app.service";
 import { join } from "path";
 import {
   I18nModule,
