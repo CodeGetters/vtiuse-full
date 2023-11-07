@@ -1,3 +1,4 @@
+import { ConfigModule } from "@nestjs/config";
 import { Module } from "@nestjs/common";
 import { AppController } from "~/controllers/app.controller";
 import { AppService } from "~/services/app.service";
@@ -11,6 +12,10 @@ import {
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: [".env"],
+      cache: true,
+    }),
     I18nModule.forRoot({
       fallbackLanguage: "en",
       loaderOptions: {

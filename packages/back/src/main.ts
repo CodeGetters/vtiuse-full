@@ -1,9 +1,9 @@
 import "module-alias";
-
 import { NestFactory } from "@nestjs/core";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "~/modules/app.module";
 import { blue } from "kolorist";
+import overallConfig from "./config";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,7 +17,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);
 
-  await app.listen(3000);
+  await app.listen(overallConfig.port);
   console.log(blue(`[API Docs]${await app.getUrl()}/docs`));
   console.log(blue(`[Test API]${await app.getUrl()}/example`));
 }
