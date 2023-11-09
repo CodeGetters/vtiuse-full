@@ -1,7 +1,13 @@
 import { ConfigModule } from "@nestjs/config";
-import { Module } from "@nestjs/common";
+import {
+  MiddlewareConsumer,
+  RequestMethod,
+  Module,
+  NestModule,
+} from "@nestjs/common";
 import { AppController } from "~/controllers/app.controller";
 import { AppService } from "~/services/app.service";
+import { APP_FILTER } from "@nestjs/core";
 import { join } from "path";
 import {
   I18nModule,
@@ -13,6 +19,9 @@ import {
 import * as winston from "winston";
 import { WinstonModule } from "nest-winston";
 import "winston-daily-rotate-file";
+import HttpExceptionFilter from "~/common/filters/http-exception.filter";
+import LoggerMiddleware from "~/common/middleware/logger.middler";
+import ResponseInterceptor from "~/common/interceptor/response.interceptor";
 
 @Module({
   imports: [
@@ -59,6 +68,22 @@ import "winston-daily-rotate-file";
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: ResponseInterceptor,
+    },
+  ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: "*", method: RequestMethod.ALL });
+  }
+}

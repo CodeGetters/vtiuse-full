@@ -4,9 +4,8 @@ import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "~/modules/app.module";
 import { blue } from "kolorist";
 import overallConfig from "./config";
-import { LoggerMiddleware } from "~/common/middleware/logger.middler";
+// import LoggerMiddleware from "~/common/middleware/logger.middler";
 import type { OpenAPIObject } from "@nestjs/swagger";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const module: any;
 
 /**
@@ -21,7 +20,7 @@ declare const module: any;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix("back");
-  app.use(LoggerMiddleware);
+  // app.use(LoggerMiddleware);
 
   const config = new DocumentBuilder()
     .setTitle("Swagger example")
