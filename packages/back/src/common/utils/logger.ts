@@ -7,7 +7,7 @@ import { Request } from "express";
 export const getReqMainInfo: (req: Request) => {
   [prop: string]: any;
 } = (req) => {
-  const { query, headers, url, method, body, connection } = req;
+  const { query, headers, url, method, body, connection, baseUrl } = req;
 
   // 获取 IP
   const xRealIp = headers["X-Real-IP"];
@@ -18,6 +18,7 @@ export const getReqMainInfo: (req: Request) => {
 
   return {
     url,
+    baseUrl,
     host: headers.host,
     ip,
     method,

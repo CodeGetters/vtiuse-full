@@ -5,11 +5,11 @@ import {
   ExceptionFilter,
   HttpStatus,
 } from "@nestjs/common";
+import { Logger } from "winston";
+import { Inject } from "@nestjs/common";
 import { Response, Request } from "express";
 import { WINSTON_MODULE_PROVIDER } from "nest-winston";
-import { Logger } from "winston";
 import { getReqMainInfo } from "~/common/utils/logger";
-import { Inject } from "@nestjs/common";
 
 interface IResponse {
   message: string;
@@ -36,6 +36,10 @@ export default class HttpExceptionFilter implements ExceptionFilter {
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
+    // instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+    // exception 的对象是否是 HttpException 的实例
+    // console.log(exception instanceof HttpException);
+
     const response = exception.getResponse() as IResponse;
 
     let msg =
@@ -58,52 +62,7 @@ export default class HttpExceptionFilter implements ExceptionFilter {
       stack: exception.stack,
     });
 
-    res.status(status >= 500 ? status : 200).json({ code: 1, msg });
+    // 返回状态码、错误信息
+    res.status(status >= 500 ? status : 200).json({ code: 1, msg, status });
   }
-
-  // constructor(
-  //   @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
-  // ) {}
-  // catch(exception: HttpException, host: ArgumentsHost) {
-  //   const ctx = host.switchToHttp();
-  //   const res = ctx.getResponse();
-  //   const req = ctx.getRequest();
-  //   const status =
-  //     exception instanceof HttpException
-  //       ? exception.getStatus()
-  //       : HttpStatus.INTERNAL_SERVER_ERROR;
-  // const response = exception.getResponse();
-  // const msg =
-  //   exception.message || (status >= 500 ? "Service Error" : "Client Error");
-  // if (
-  //   Object.prototype.toString.call(response) === "[Object Object]" &&
-  //   response.message
-  // ) {
-  //   msg = response.message;
-  // }
-  // const { query, headers, url, method, body } = req;
-  // 记录日志（错误消息，错误码，请求信息等）
-  // this.logger.error(msg, {
-  //   status,
-  //   req: getReqMainInfo(req),
-  //   // stack: exception.stack,
-  // });
-  // res.status(status >= 500 ? status : 200).json({ code: 1, msg });
-  // const exceptionMsg = exception.getResponse() as any;
-  // const msgLength = exceptionMsg.message.length;
-  // const messageLen = exceptionMsg.message[0].length;
-  // const finalMsg =
-  //   msgLength > messageLen ? exceptionMsg.message : exceptionMsg.message[0];
-  // const message = finalMsg
-  //   ? finalMsg
-  //   : `${status >= 500 ? "Service Error" : "Client Error"}`;
-  // const errorResponse = {
-  //   data: [],
-  //   message: message,
-  //   code: -1,
-  // };
-  // res.status(status);
-  // res.header("Content-Type", "application/json; charset=utf-8");
-  // res.send(errorResponse);
-  // }
 }
