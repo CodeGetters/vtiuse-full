@@ -26,7 +26,6 @@ export default class ResponseInterceptor implements NestInterceptor {
     const ctx = context.switchToHttp();
     const req = ctx.getRequest<Request>();
 
-    // TODO:
     return next.handle().pipe(
       map((data) => {
         this.logger.info("response", {
