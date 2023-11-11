@@ -24,6 +24,8 @@
 
 ## Running the app
 
+<!-- 中间件，守卫，拦截器，管道，真正业务逻辑处理，拦截器，请求结束返回内容 -->
+
 ```bash
 # development
 $ pnpm run start
@@ -57,3 +59,5 @@ $ pnpm run test:cov
 - [x] Http-exception
 - [x] Config
 - [x] i18n
+- [x] pipe
+- [ ] TypeORM

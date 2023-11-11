@@ -29,6 +29,7 @@ import ResponseInterceptor from "~/common/interceptor/response.interceptor";
       envFilePath: [".env"],
       cache: true,
     }),
+
     I18nModule.forRoot({
       fallbackLanguage: "en",
       loaderOptions: {

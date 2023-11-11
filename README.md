@@ -40,8 +40,15 @@ pnpm start
 ### backend
 
 - [x] TS
-- [x] nestjs
-- [x] i18n
-- [x] hmr
+- [x] Nest.js
 - [x] jest
 - [x] express
+- [x] HMR
+- [x] Swagger
+- [x] Alias
+- [x] loggerMiddle
+- [x] Http-exception
+- [x] Config
+- [x] i18n
+- [x] pipe
+- [ ] TypeORM
