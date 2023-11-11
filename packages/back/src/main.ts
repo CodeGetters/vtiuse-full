@@ -1,11 +1,11 @@
 import "module-alias";
-import { NestFactory } from "@nestjs/core";
-import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { AppModule } from "~/modules/app.module";
 import { blue } from "kolorist";
 import overallConfig from "./config";
-// import LoggerMiddleware from "~/common/middleware/logger.middler";
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "~/modules/app.module";
+import { ValidationPipe } from "@nestjs/common";
 import type { OpenAPIObject } from "@nestjs/swagger";
+import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 declare const module: any;
 
 /**
@@ -20,7 +20,7 @@ declare const module: any;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix("back");
-  // app.use(LoggerMiddleware);
+  app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
     .setTitle("Swagger example")

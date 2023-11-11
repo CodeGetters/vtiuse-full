@@ -24,22 +24,24 @@ export default class LoggerMiddleware implements NestMiddleware {
 
     this.logger.info("route", {
       req: getReqMainInfo(req),
+      resStatus: res.statusCode,
     });
 
     console.log(
       green(
         `############## ${bgGreen(
-          formatTime("", "YYYY-MM-DD HH:mm:ss"),
+          formatTime(null, "YYYY-MM-DD HH:mm:ss"),
         )} ###################`,
       ),
     );
     const start: number = Date.now();
     next();
     const ms: number = Date.now() - start;
-    console.log(cyan(`[HOST]       ${host}`));
-    console.log(cyan(`[METHOD]     ${method}`));
-    console.log(cyan(`[BASEURL]    ${baseUrl}/${url}`));
-    console.log(cyan(`[TIME]       ${ms}ms`));
+    console.log(cyan(`[HOST]         ${host}`));
+    console.log(cyan(`[METHOD]       ${method}`));
+    console.log(cyan(`[BASEURL]      ${baseUrl}/${url}`));
+    console.log(cyan(`[TIME]         ${ms}ms`));
+    console.log(cyan(`[STATUSCODE]   ${res.statusCode}`));
 
     console.log(green("#################################"));
   }

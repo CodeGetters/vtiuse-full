@@ -13,6 +13,11 @@ import { map } from "rxjs/operators";
 import { WINSTON_MODULE_PROVIDER } from "nest-winston";
 import { getReqMainInfo } from "~/common/utils/logger";
 
+/**
+ * 统一成功返回的格式
+ * {code:200,data,msg:"success"}
+ */
+
 @Injectable()
 export default class ResponseInterceptor implements NestInterceptor {
   constructor(
@@ -33,9 +38,9 @@ export default class ResponseInterceptor implements NestInterceptor {
           req: getReqMainInfo(req),
         });
         return {
-          code: 0,
+          code: 200,
           data,
-          msg: "成功",
+          msg: "success",
         };
       }),
     );

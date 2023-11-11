@@ -47,3 +47,13 @@ $ pnpm run test:e2e
 # test coverage
 $ pnpm run test:cov
 ```
+
+## Feature
+
+- [x] HMR
+- [x] Swagger
+- [x] Alias
+- [x] loggerMiddle
+- [x] Http-exception
+- [x] Config
+- [x] i18n

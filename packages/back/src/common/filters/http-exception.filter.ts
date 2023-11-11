@@ -19,6 +19,8 @@ interface IResponse {
 
 /**
  * 全局异常过滤器
+ * 统一返回异常信息
+ * {code:status,msg}
  */
 @Catch(HttpException)
 export default class HttpExceptionFilter implements ExceptionFilter {
@@ -55,6 +57,6 @@ export default class HttpExceptionFilter implements ExceptionFilter {
       stack: exception.stack,
     });
 
-    res.status(status >= 500 ? status : 200).json({ code: 1, msg, status });
+    res.status(status >= 500 ? status : 200).json({ code: status, msg });
   }
 }

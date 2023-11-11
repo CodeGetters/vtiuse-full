@@ -11,4 +11,9 @@ export class AppService {
 
     return { info: this.i18n.translate("test.Hello", { lang }) };
   }
+
+  createUser(userData) {
+    console.log(blue("[CreateUser]:创建成功"), userData);
+    return { info: userData };
+  }
 }

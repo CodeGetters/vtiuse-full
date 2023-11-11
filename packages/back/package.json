@@ -10,7 +10,7 @@
     "~": "dist"
   },
   "scripts": {
-    "build": "nest build",
+    "build": "nest build --webpack --webpackPath webpack-hmr.config.js",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest build --webpack --webpackPath webpack-hmr.config.js --watch",
@@ -30,6 +30,8 @@
     "@nestjs/core": "^10.2.8",
     "@nestjs/platform-express": "^10.2.8",
     "@nestjs/swagger": "^7.1.14",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "dayjs": "^1.11.10",
     "nest-winston": "^1.9.4",
     "nestjs-i18n": "^10.3.7",

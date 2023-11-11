@@ -4,5 +4,10 @@ export const formatTime = (
   date: Date | number | string,
   format: string,
 ): string => {
-  return dayjs(date).format(format);
+  let formattedDate;
+  date === null
+    ? (formattedDate = dayjs().format(format))
+    : (formattedDate = dayjs(date).format(format));
+
+  return formattedDate;
 };
