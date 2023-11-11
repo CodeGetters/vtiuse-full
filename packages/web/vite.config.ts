@@ -10,6 +10,9 @@ import AutoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
+import { babel } from "@rollup/plugin-babel";
+import PostCssPresetEnv from "postcss-preset-env";
+import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -48,7 +51,26 @@ export default ({ mode }) => {
       },
     },
     build: {
+      cssTarget: "chrome70",
+      target: "es2015",
       rollupOptions: {
+        plugins: [
+          babel({
+            babelHelpers: "bundled",
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  useBuiltIns: "entry",
+                  corejs: "3",
+                  targets: "last 2 versions and not dead, > 0.2%, Firefox ESR",
+                },
+              ],
+            ],
+            plugins: [],
+            compact: false,
+          }),
+        ],
         output: {
           entryFileNames: "assets/js/[name].js",
           chunkFileNames: "assets/js/[name]-[hash].js",
@@ -63,6 +85,25 @@ export default ({ mode }) => {
             }
           },
         },
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        css: { charset: false },
+      },
+      postcss: {
+        plugins: [
+          PostCssPresetEnv(),
+          autoprefixer({
+            overrideBrowserslist: [
+              "Android 4.1",
+              "iOS 7.1",
+              "Chrome > 31",
+              "ff > 31",
+              "ie >= 8",
+            ],
+          }),
+        ],
       },
     },
     plugins: [
