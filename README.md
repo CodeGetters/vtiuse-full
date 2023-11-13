@@ -33,7 +33,7 @@ pnpm start
 - [x] vitest
 - [x] axios
 - [x] sass
-- [ ] i18n
+- [x] i18n
 - [x] unocss
 - [x] element-plus
 

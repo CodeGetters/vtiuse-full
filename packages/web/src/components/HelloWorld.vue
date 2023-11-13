@@ -1,5 +1,17 @@
 <script setup lang="ts">
 import { toggleDark } from "@/utils/useToggleDark";
+import { useI18n } from "vue-i18n";
+
+const { locale, t } = useI18n();
+
+/**
+ * @description 语言切换-language change
+ */
+const changeLang = () => {
+  locale.value === "zh" ? (locale.value = "en") : (locale.value = "zh");
+};
+
+console.log(locale.value);
 </script>
 
 <template>
@@ -10,6 +22,8 @@ import { toggleDark } from "@/utils/useToggleDark";
       <button @click="toggleDark">
         <div i-carbon-sun dark:i-carbon-moon cursor-pointer />
       </button>
+      <div class="text-red">{{ t("HelloWorld") }}</div>
+      <button @click="changeLang()" cursor-pointer>切换语言</button>
     </div>
   </div>
 </template>
