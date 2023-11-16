@@ -14,7 +14,6 @@ import { babel } from "@rollup/plugin-babel";
 import PostCssPresetEnv from "postcss-preset-env";
 import autoprefixer from "autoprefixer";
 
-// https://vitejs.dev/config/
 export default ({ mode }) => {
   const VITE_BASE_URL = loadEnv(mode, process.cwd()).VITE_BASE_URL;
 
@@ -51,7 +50,7 @@ export default ({ mode }) => {
       },
     },
     build: {
-      cssTarget: "chrome70",
+      cssTarget: "chrome90",
       target: "es2015",
       rollupOptions: {
         plugins: [
@@ -98,7 +97,7 @@ export default ({ mode }) => {
             overrideBrowserslist: [
               "Android 4.1",
               "iOS 7.1",
-              "Chrome > 31",
+              "Chrome > 90",
               "ff > 31",
               "ie >= 8",
             ],
@@ -127,6 +126,11 @@ export default ({ mode }) => {
             ],
           },
         ],
+        eslintrc: {
+          enabled: true,
+          filepath: "./.eslintrc-auto-import.json",
+          globalsPropValue: true,
+        },
         resolvers: [ElementPlusResolver()],
         defaultExportByFilename: false,
         dts: true,

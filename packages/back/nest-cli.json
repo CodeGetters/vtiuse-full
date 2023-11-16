@@ -6,7 +6,7 @@
     "deleteOutDir": true,
     "assets": [
       { "include": "i18n/**/*", "watchAssets": true },
-      {"include": "logs/*","watchAssets": true}
+      { "include": "logs/*", "watchAssets": true }
     ]
   }
 }
