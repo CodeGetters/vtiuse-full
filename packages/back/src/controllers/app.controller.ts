@@ -5,9 +5,11 @@ import { ApiTags, ApiOperation } from "@nestjs/swagger";
 import { createUserDto } from "~/common/dto/user.dto";
 import { Post, Body, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
+import ResponseInterceptor from "~/common/interceptor/response.interceptor";
 
 @ApiTags("测试")
 @Controller("example")
+@UseInterceptors(ResponseInterceptor)
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
