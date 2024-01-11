@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toggleDark } from "@/utils/useToggleDark";
+// import { toggleDark } from "@/utils/useToggleDark";
 import { useI18n } from "vue-i18n";
 
 const { locale, t } = useI18n();
@@ -19,9 +19,9 @@ console.log(locale.value);
     class="home .dark:bg-black .dark:text-#fff text-18px h100vh flex flex-col justify-center items-center"
   >
     <div class="container flex flex-row items-center justify-center">
-      <button @click="toggleDark">
+      <!-- <button @click="toggleDark">
         <div i-carbon-sun dark:i-carbon-moon cursor-pointer />
-      </button>
+      </button> -->
       <div class="text-red">{{ t("HelloWorld") }}</div>
       <button @click="changeLang()" cursor-pointer>切换语言</button>
     </div>
