@@ -13,7 +13,6 @@ export default defineConfig({
     presetAttributify(),
     presetTypography(),
     presetIcons({
-      // cdn: "https://esm.sh/",
       extraProperties: {
         display: "inline-block",
         height: "1.2em",
