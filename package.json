@@ -54,5 +54,13 @@
     "turbo": "^1.12.5",
     "typescript": "^5.3.3"
   },
+  "homepage": "https://github.com/CodeGetters/vtiuse-full#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeGetters/vtiuse-full.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeGetters/vtiuse-full/issues"
+  },
   "packageManager": "pnpm@8.15.0"
 }
