@@ -1,0 +1,53 @@
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  extends: [
+    "prettier",
+    "eslint-config-turbo",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
+  env: {
+    node: true,
+  },
+  plugins: ["@typescript-eslint/eslint-plugin", "import"],
+  settings: {
+    "import/resolver": {
+      typescript: {
+        project,
+      },
+    },
+  },
+  ignorePatterns: [".eslintrc.js", "dist", "src/metadata.ts"],
+  rules: {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-console": "warn",
+    "no-undef": 0,
+    "no-multiple-empty-lines": ["error", { max: 1 }],
+    "no-var": 2, // 禁止使用 var 声明变量
+    "prefer-rest-params": 2, // 要求使用剩余参数而不是 arguments
+    eqeqeq: 2, // 强制使用 === 和 !==
+    "no-multi-spaces": 1, // 禁止使用多个空格
+    "default-case": 1, // 要求 switch 语句中有 default 分支
+    "no-dupe-args": 2, // 禁止 function 定义中出现重名参数
+    "import/order": [
+      2,
+      {
+        groups: [
+          // ["builtin", "external", "internal"],
+          // "parent",
+          // "sibling",
+          // "index",
+        ],
+        // "newlines-between": "always",
+      },
+    ],
+  },
+};

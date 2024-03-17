@@ -1,4 +1,10 @@
 dist
 .eslintrc.cjs
+.eslintrc.js
 shims-vue.d.ts
 webpack-hmr.config.js
+commitlint.config.js
+packages/**
+api-generate.js
+components.d.ts
+coverage/**

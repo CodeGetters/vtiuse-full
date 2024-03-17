@@ -1,0 +1,18 @@
+{
+  "extends": "@vtiuse/typescript-config/web.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "auto-imports.d.ts"
+  ],
+  "exclude": ["node_modules", "shims-vue.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -1,18 +1,17 @@
 {
-  "name": "vtiuse-full",
+  "name": "root",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": "true",
-  "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
     "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
+    "format:ci": "prettier --check packages apps",
+    "lint": "turbo lint",
     "prepare": "husky install",
-    "cz": "git cz",
-    "dev": "cd packages/web && pnpm dev && cd .. && cd ..",
-    "start": "cd packages/back && pnpm start:dev && cd .. && cd .."
+    "dev": "lerna run dev --scope=web",
+    "start": "lerna run start --scope=service"
   },
   "config": {
     "commitizen": {
@@ -21,8 +20,7 @@
   },
   "lint-staged": {
     "*.{js,vue,ts,jsx,tsx}": [
-      "prettier --write",
-      "eslint ."
+      "prettier --write"
     ],
     "*.{html,css,less,scss,md}": [
       "prettier --write"
@@ -32,24 +30,37 @@
     "node": ">=20",
     "pnpm": ">=8"
   },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "keywords": [],
   "author": "CodeGetters",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@types/node": "^20.11.22",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@vtiuse/eslint-config": "workspace:*",
+    "@vtiuse/typescript-config": "workspace:*",
     "cz-git": "^1.8.0",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-vue": "^9.22.0",
     "husky": "^9.0.11",
+    "lerna": "^8.1.2",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "turbo": "^1.12.5",
     "typescript": "^5.3.3"
-  }
+  },
+  "homepage": "https://github.com/CodeGetters/vtiuse-full#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeGetters/vtiuse-full.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeGetters/vtiuse-full/issues"
+  },
+  "packageManager": "pnpm@8.15.0"
 }
