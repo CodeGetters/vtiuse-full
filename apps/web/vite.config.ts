@@ -5,7 +5,7 @@ import UnoCSS from "unocss/vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "node:path";
 import tsChecker from "vite-plugin-checker";
-import devTools from "vite-plugin-vue-devtools";
+// import devTools from "vite-plugin-vue-devtools";
 import AutoImport from "unplugin-auto-import/vite";
 import viteCompression from "vite-plugin-compression";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
@@ -111,7 +111,7 @@ export default ({ mode }) => {
         typescript: true,
       }),
       UnoCSS(),
-      devTools(),
+      // devTools(),
       AutoImport({
         include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
         imports: [
