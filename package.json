@@ -39,20 +39,20 @@
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@commitlint/cli": "19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
-    "@types/node": "^20.11.22",
+    "@commitlint/cli": "19.2.0",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@types/node": "^20.11.28",
     "@vtiuse/eslint-config": "workspace:*",
     "@vtiuse/typescript-config": "workspace:*",
-    "cz-git": "^1.8.0",
+    "cz-git": "^1.9.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.22.0",
+    "eslint-plugin-vue": "^9.23.0",
     "husky": "^9.0.11",
     "lerna": "^8.1.2",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "turbo": "^1.12.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "homepage": "https://github.com/CodeGetters/vtiuse-full#readme",
   "repository": {
