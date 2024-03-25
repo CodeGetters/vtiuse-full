@@ -11,7 +11,7 @@
     "lint": "turbo lint",
     "prepare": "husky install",
     "dev": "lerna run dev --scope=web",
-    "start": "lerna run start --scope=service"
+    "start": "lerna run start:dev --scope=service"
   },
   "config": {
     "commitizen": {
