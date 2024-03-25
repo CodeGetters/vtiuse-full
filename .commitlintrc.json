@@ -1,5 +1,6 @@
-{ "extends": ["@commitlint/config-conventional"],
-"rules": {
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
     "type-enum": [
       2,
       "always",
@@ -97,4 +98,5 @@
         "name": "chore:    其他修改 | Other changes that do not modify src or test files"
       }
     ]
-  } }
+  }
+}

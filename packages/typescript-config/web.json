@@ -1,8 +1,7 @@
 {
-    "extends": "@vue/tsconfig/tsconfig.dom.json",
-    "compilerOptions": {
-      "noEmit": true,
-      "types": ["vitest", "vitest/globals"]
-    }
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["vitest", "vitest/globals"]
   }
-  
+}
