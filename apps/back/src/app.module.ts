@@ -5,6 +5,7 @@ import { I18nConfigModule } from "@/common/locales/i18n.module";
 import { LoggerModule } from "@/common/logger/logger.module";
 import { HttpExceptionFilter } from "@/core/filters/http-exception.filter";
 import { AllExceptionFilter } from "@/core/filters/all-exception.filter";
+import { PrismaModule } from "./common/prisma/prisma.module";
 import { V1Module } from "@/api";
 
 export const isVercelEnv = process.env.VERCEL_DEPLOY === "1";
@@ -25,6 +26,7 @@ console.log(
     }),
     I18nConfigModule,
     LoggerModule.forRoot(),
+    PrismaModule,
     V1Module,
   ],
   providers: [
