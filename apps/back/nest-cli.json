@@ -5,8 +5,15 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "assets": [
-      { "include": "i18n/**/*", "watchAssets": true },
-      { "include": "logs/*", "watchAssets": true }
+      {
+        "include": "common/locales/i18n/**/*.json",
+        "watchAssets": true,
+        "outDir": "dist"
+      },
+      {
+        "include": "logs/*",
+        "watchAssets": true
+      }
     ]
   }
 }

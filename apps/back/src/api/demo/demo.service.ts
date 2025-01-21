@@ -1,17 +1,15 @@
-/* eslint-disable no-console */
 import { blue } from "kolorist";
 import { Injectable } from "@nestjs/common";
 import { I18nLang, I18nService } from "nestjs-i18n";
 
 @Injectable()
-export class AppService {
-  // eslint-disable-next-line no-unused-vars
+export class DemoService {
   constructor(private readonly i18n: I18nService) {}
 
   getHello(@I18nLang() lang: string) {
     console.log(blue("[TEST]: app 示例请求成功！"));
-
-    return { info: this.i18n.translate("test.Hello", { lang }) };
+    // return this.i18n.t('test.HELLO',{ lang:   I18nContext.current().lang });
+    return { info: this.i18n.t("test.Hello", { lang }) };
   }
 
   createUser(userData) {
