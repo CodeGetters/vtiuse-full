@@ -5,7 +5,7 @@ import {
   HttpException,
 } from "@nestjs/common";
 import { FastifyReply } from "fastify";
-import { LoggerService } from "~/common/logger/logger.service";
+import { LoggerService } from "@/common/logger/logger.service";
 
 /**
  * HTTP 异常过滤器

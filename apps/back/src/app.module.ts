@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { APP_FILTER } from "@nestjs/core";
 import { ConfigModule } from "@nestjs/config";
-import { I18nConfigModule } from "~/common/locales/i18n.module";
-import { LoggerModule } from "~/common/logger/logger.module";
-import { HttpExceptionFilter } from "~/core/filters/http-exception.filter";
-import { AllExceptionFilter } from "~/core/filters/all-exception.filter";
-import { V1Module } from "~/api";
+import { I18nConfigModule } from "@/common/locales/i18n.module";
+import { LoggerModule } from "@/common/logger/logger.module";
+import { HttpExceptionFilter } from "@/core/filters/http-exception.filter";
+import { AllExceptionFilter } from "@/core/filters/all-exception.filter";
+import { V1Module } from "@/api";
 
 export const isVercelEnv = process.env.VERCEL_DEPLOY === "1";
 export const isProduction =

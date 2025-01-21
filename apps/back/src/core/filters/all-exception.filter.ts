@@ -7,7 +7,7 @@ import {
 } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
 // import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import { LoggerService } from "~/common/logger/logger.service";
+import { LoggerService } from "@/common/logger/logger.service";
 
 /**
  * 全局异常过滤器

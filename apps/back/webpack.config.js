@@ -67,7 +67,7 @@ module.exports = {
     // 自动解析这些扩展名的文件，引入时可以省略扩展名
     extensions: [".js", ".ts", ".json"],
     alias: {
-      "~": path.resolve(__dirname, "src"), // 支持 @ 路径别名
+      "@": path.resolve(__dirname, "src"), // 支持 @ 路径别名
     },
   },
 

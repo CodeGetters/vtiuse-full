@@ -1,6 +1,6 @@
 import { Global, Module, DynamicModule } from "@nestjs/common";
 import { LoggerService, NoopLoggerService } from "./logger.service";
-import { isVercelEnv } from "~/app.module";
+import { isVercelEnv } from "@/app.module";
 
 @Global()
 @Module({})

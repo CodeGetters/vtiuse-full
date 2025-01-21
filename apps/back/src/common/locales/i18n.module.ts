@@ -1,6 +1,6 @@
 import { Global, Module } from "@nestjs/common";
 import { join } from "node:path";
-import { isProduction } from "~/app.module";
+import { isProduction } from "@/app.module";
 import {
   I18nModule,
   QueryResolver,

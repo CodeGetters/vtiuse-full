@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import * as winston from "winston";
 import * as DailyRotateFile from "winston-daily-rotate-file";
 import { join } from "node:path";
-import { isVercelEnv } from "~/app.module";
+import { isVercelEnv } from "@/app.module";
 
 const LOG_DIR = "logs";
 

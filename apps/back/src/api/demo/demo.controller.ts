@@ -1,8 +1,8 @@
 import { Get, Controller } from "@nestjs/common";
 import { I18nLang } from "nestjs-i18n";
-import { DemoService } from "~/api/demo/demo.service";
+import { DemoService } from "@/api/demo/demo.service";
 import { ApiTags, ApiOperation } from "@nestjs/swagger";
-import { createUserDto } from "~/api/demo/dto/user.dto";
+import { createUserDto } from "./dto/user.dto";
 import { Post, Body, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 
