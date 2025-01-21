@@ -57,7 +57,7 @@ jobs:
         if: steps.check-time.outputs.should_update == 'true' # 仅在需要更新时执行
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 提供的 token
+          token: ${{ secrets.TOKEN_GITHUB }} # 使用 GitHub 提供的 token
           commit-message: "chore(deps): update dependencies" # 提交信息
           title: "🤖 Auto Dependency Update" # PR 标题
           body: | # PR 描述
