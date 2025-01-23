@@ -55,7 +55,7 @@ $ pnpm run test:cov
 - [x] HMR
 - [x] Swagger
 - [x] Alias
-- [x] loggerMiddle
+- [x] logger
 - [x] Http-exception
 - [x] Config
 - [x] i18n

@@ -1,18 +1,15 @@
 import { Get, Controller } from "@nestjs/common";
 import { I18nLang } from "nestjs-i18n";
-import { AppService } from "~/services/app.service";
+import { DemoService } from "@/api/demo/demo.service";
 import { ApiTags, ApiOperation } from "@nestjs/swagger";
-import { createUserDto } from "~/common/dto/user.dto";
+import { createUserDto } from "./dto/user.dto";
 import { Post, Body, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
-import ResponseInterceptor from "~/common/interceptor/response.interceptor";
 
 @ApiTags("测试")
-@Controller("example")
-@UseInterceptors(ResponseInterceptor)
-export class AppController {
-  // eslint-disable-next-line no-unused-vars
-  constructor(private readonly appService: AppService) {}
+@Controller()
+export class DemoController {
+  constructor(private readonly demoService: DemoService) {}
 
   @Get()
   @ApiOperation({
@@ -20,13 +17,13 @@ export class AppController {
     description: "app 连接测试请求",
   })
   getHello(@I18nLang() lang: string) {
-    return this.appService.getHello(lang);
+    return this.demoService.getHello(lang);
   }
 
   @Post("create")
   @ApiOperation({ summary: "创建用户" })
   @UseInterceptors(FileInterceptor("file"))
   createUser(@Body() userData: createUserDto) {
-    return this.appService.createUser(userData);
+    return this.demoService.createUser(userData);
   }
 }

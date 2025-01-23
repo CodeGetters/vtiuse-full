@@ -43,12 +43,10 @@ pnpm start
 - [x] Nest.js
 - [x] jest
 - [x] express
-- [x] HMR
 - [x] Swagger
-- [x] Alias
-- [x] loggerMiddle
+- [x] logger
 - [x] Http-exception
 - [x] Config
 - [x] i18n
 - [x] pipe
-- [ ] TypeORM
+- [x] Prisma
